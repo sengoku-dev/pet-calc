@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>犬・猫のフード量（給与量）計算 | ペットの計算ノート</title>
+<meta name="description" content="体重とライフステージ、フードのカロリー（kcal/100g）から、犬・猫の1日の必要カロリー（RER・DER）とフードの給与量（g/日）を計算。獣医栄養学で使われる RER＝70×体重^0.75 と一般的な係数にもとづく目安です。">
+<link rel="canonical" href="https://sengoku-dev.github.io/pet-calc/food-ryo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="犬・猫のフード量（給与量）計算 | ペットの計算ノート">
+<meta property="og:description" content="体重とライフステージ、フードのカロリー（kcal/100g）から、犬・猫の1日の必要カロリー（RER・DER）とフードの給与量（g/日）を計算。獣医栄養学で使われる RER＝70×体重^0.75 と一般的な係数にもとづく目安です。">
+<meta property="og:url" content="https://sengoku-dev.github.io/pet-calc/food-ryo/">
+<meta property="og:site_name" content="ペットの計算ノート">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#d9772b">
+<link rel="icon" href="/pet-calc/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/pet-calc/assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"犬・猫のフード量（給与量）計算","url":"https://sengoku-dev.github.io/pet-calc/food-ryo/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","description":"体重とライフステージ、フードのカロリー（kcal/100g）から、犬・猫の1日の必要カロリー（RER・DER）とフードの給与量（g/日）を計算。獣医栄養学で使われる RER＝70×体重^0.75 と一般的な係数にもとづく目安です。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"inLanguage":"ja"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"フードの給与量はどう計算しますか？","acceptedAnswer":{"@type":"Answer","text":"まず安静時エネルギー要求量 RER＝70×体重(kg)の0.75乗 を求め、ライフステージや避妊去勢の有無に応じた係数をかけて1日の必要カロリー（DER）を出します。これをフードのカロリー密度（kcal/100g）で割って100をかけると1日の給与量（g）になります。例: 体重10kgの避妊去勢済み成犬ならRER約394kcal、DER約630kcal、350kcal/100gのフードなら約180g/日です。"}},{"@type":"Question","name":"パッケージの給与量表と計算結果が違うのはなぜ？","acceptedAnswer":{"@type":"Answer","text":"パッケージの表はメーカーが自社フードの栄養設計をもとに作ったもので、計算式の係数や想定する活動量が異なることがあります。どちらも出発点にすぎず、最終的には愛犬・愛猫の体重と体型（ボディコンディションスコア）を見ながら、2〜4週間ごとに量を調整するのが基本です。迷う場合はパッケージ表示と獣医師の指示を優先してください。"}},{"@type":"Question","name":"おやつはどのくらいまで与えていいですか？","acceptedAnswer":{"@type":"Answer","text":"おやつは1日の総カロリーの10%以内に収め、その分フードを減らすのが一般的な目安です。例えば1日600kcalが必要なら、おやつは60kcalまでにし、フードを540kcal分にします。おやつが多いと栄養バランスが崩れやすく、肥満の原因になります。"}},{"@type":"Question","name":"避妊去勢すると必要カロリーは減りますか？","acceptedAnswer":{"@type":"Answer","text":"はい。避妊去勢後はホルモンの変化で代謝が下がり、必要カロリーが20〜30%ほど減るとされています。そのため係数は未避妊去勢の成犬1.8に対し避妊去勢済みは1.6、猫は1.4に対し1.2と小さくなります。手術後に以前と同じ量を与え続けると太りやすいので、量の見直しが推奨されています。"}},{"@type":"Question","name":"減量中やシニアの場合はどう考えますか？","acceptedAnswer":{"@type":"Answer","text":"減量中は係数1.0〜1.2（猫は0.8〜1.0）程度に下げる方法が一般的ですが、急激な減量は危険（特に猫は脂肪肝のリスク）なため、獣医師の指導のもとで行います。シニアは活動量の低下で必要カロリーが減る一方、筋肉量を保つためタンパク質は十分に必要です。体重の推移を見ながら調整してください。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ペットの計算ノート","item":"https://sengoku-dev.github.io/pet-calc/"},{"@type":"ListItem","position":2,"name":"犬・猫のフード量（給与量）計算","item":"https://sengoku-dev.github.io/pet-calc/food-ryo/"}]}</script>
+
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="brand" href="/pet-calc/">🐾 ペットの計算ノート</a><nav class="nav"><a href="/pet-calc/inu-nenrei/">犬の年齢換算</a><a href="/pet-calc/neko-nenrei/">猫の年齢換算</a><a href="/pet-calc/inu-neko-hiyou/">生涯費用</a><a href="/pet-calc/food-ryo/">フード量計算</a></nav></div></header>
+<div class="ad-slot ad-top" data-ad="728x90" data-ad-mobile="320x50"></div>
+<main class="wrap">
+<p class="pr-label">当サイトはアフィリエイト広告（楽天アフィリエイト等）を利用しています。</p>
+
+<h1>犬・猫のフード量（給与量）計算</h1>
+<p class="lead">体重、ライフステージ、フードのカロリーを入れると、1日の必要カロリーとフードの量（g）を計算します。獣医栄養学で広く使われる RER（安静時エネルギー要求量）と係数による方法です。</p>
+<div class="warn">計算結果は一般的な目安です。実際の給与量は<strong>フードのパッケージ表示と、かかりつけの獣医師の指示を優先</strong>してください。特に子犬・子猫、妊娠・授乳中、持病のある場合、減量中は必ず獣医師に相談を。</div>
+
+<div class="card" data-tool="food-ryo">
+  <div class="grid">
+    <div class="field"><label for="f-species">種類</label><select id="f-species"><option value="dog">犬</option><option value="cat">猫</option></select></div>
+    <div class="field"><label for="f-kg">体重</label><div class="unit"><input type="number" id="f-kg" min="0.1" max="120" step="0.1" value="5" inputmode="decimal"><span>kg</span></div><span class="hint">減量中は目標体重ではなく現在の体重で計算し、獣医師と調整</span></div>
+    <div class="field"><label for="f-stage">ライフステージ・状態</label><select id="f-stage"></select></div>
+    <div class="field"><label for="f-kcal">フードのカロリー</label><div class="unit"><input type="number" id="f-kcal" min="1" max="1000" step="1" value="350" inputmode="numeric"><span>kcal/100g</span></div><span class="hint">パッケージの「代謝エネルギー」欄。ドライは330〜420程度、ウェットは70〜120程度が多い</span></div>
+  </div>
+  <div class="result" id="f-result" aria-live="polite"></div>
+</div>
+
+<div class="cta">フード代の見通しは<a href="/pet-calc/inu-neko-hiyou/">生涯費用シミュレーター</a>で。シニア期の判定は<a href="/pet-calc/inu-nenrei/">犬の年齢換算</a>・<a href="/pet-calc/neko-nenrei/">猫の年齢換算</a>で確認できます。</div>
+
+<h2>計算の仕組み</h2>
+<h3>1. RER（安静時エネルギー要求量）</h3>
+<p>RERは、快適な温度で安静にしているときに体が最低限必要とするエネルギーで、体重を使って次の式で求めます。</p>
+<p><strong>RER（kcal/日）＝ 70 × 体重(kg)<sup>0.75</sup></strong></p>
+<p>体重の0.75乗（代謝体重）を使うのは、体が大きいほど体重あたりの必要カロリーが少なくなる関係を表すためです。WSAVA（世界小動物獣医師会）の栄養評価ガイドラインの付属資料や、米国の大学動物病院の栄養科でもこの式が標準として使われています。簡易式として「30 × 体重 ＋ 70」もありますが、2kg未満や45kg超では誤差が大きくなるため、当ツールは0.75乗の式を採用しています。</p>
+<h3>2. DER（1日あたりのエネルギー要求量）と係数</h3>
+<p>RERに、ライフステージ・避妊去勢の有無・活動量に応じた係数をかけたものがDER（実際に1日に与えるべきカロリーの目安）です。当ツールの係数は、オハイオ州立大学獣医医療センターのカロリー計算ガイドなど、一般的な獣医栄養学の資料で広く使われている値をもとにしています。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>状態</th><th class="num">犬の係数</th><th class="num">猫の係数</th></tr></thead>
+  <tbody>
+    <tr><td>子犬・子猫（生後4か月未満）</td><td class="num">3.0</td><td class="num">2.5</td></tr>
+    <tr><td>子犬・子猫（4か月〜成熟まで）</td><td class="num">2.0</td><td class="num">2.0</td></tr>
+    <tr><td>成犬・成猫（避妊去勢済み）</td><td class="num">1.6</td><td class="num">1.2</td></tr>
+    <tr><td>成犬・成猫（未避妊去勢）</td><td class="num">1.8</td><td class="num">1.4</td></tr>
+    <tr><td>活動量の多い成犬</td><td class="num">2.0〜</td><td class="num">—</td></tr>
+    <tr><td>シニア</td><td class="num">1.2〜1.4</td><td class="num">1.1〜1.4</td></tr>
+    <tr><td>運動不足・太りやすい</td><td class="num">1.2〜1.4</td><td class="num">1.0</td></tr>
+    <tr><td>減量中（獣医師の指導下で）</td><td class="num">1.0〜1.2</td><td class="num">0.8〜1.0</td></tr>
+  </tbody>
+</table></div>
+<p class="note">係数は資料によって多少の幅があります。幅のある項目は、結果を「◯〜◯kcal」の範囲で表示しています。</p>
+<h3>3. フードの量（g）に換算</h3>
+<p><strong>給与量（g/日）＝ DER ÷ フードのカロリー(kcal/100g) × 100</strong></p>
+<p>フードのカロリーは、パッケージの「代謝エネルギー（ME）」の欄に kcal/100g で書かれています。ドライフードは330〜420kcal/100g程度、ウェットフードは水分が多いため70〜120kcal/100g程度が一般的です。ドライとウェットを併用する場合は、それぞれのカロリーを合計して必要カロリーに収めます。</p>
+
+<h2>量を決めたあとに大切なこと</h2>
+<ul>
+  <li><strong>体重と体型を定期的に確認する。</strong>計算値は出発点です。2〜4週間ごとに体重を測り、肋骨が軽く触れる・上から見てくびれがあるといったボディコンディションを見て、増減させます。</li>
+  <li><strong>おやつは総カロリーの10%以内。</strong>おやつのぶんフードを減らします。歯磨きガムやトッピングも忘れずにカウントします。</li>
+  <li><strong>フードを替えたら再計算。</strong>銘柄によってカロリー密度が大きく違うため、同じ「カップ1杯」でもカロリーが変わります。計量はカップより秤（g）が確実です。</li>
+  <li><strong>子犬・子猫は成長に合わせて見直す。</strong>月齢が進むにつれて体重が増え、係数は下がります。月1回は再計算を。</li>
+  <li><strong>減量は獣医師と。</strong>減量は週に体重の1〜2%（猫は0.5〜1%）程度のペースが安全とされ、猫の急な絶食・減量は肝リピドーシスのリスクがあります。</li>
+</ul>
+
+<h2>出典・参考（検証日: 2026-10-11）</h2>
+<ul class="src">
+  <li>WSAVA Global Nutrition Committee, "Nutritional Assessment Guidelines" (2011) およびツールキット <a href="https://wsava.org/global-guidelines/global-nutrition-guidelines/" rel="noopener" target="_blank">wsava.org</a></li>
+  <li>The Ohio State University Veterinary Medical Center, "Basic Calorie Calculator"（RER式と係数表） <a href="https://vmc.vet.osu.edu/companion/our-services/nutrition-support-service/basic-calorie-calculator" rel="noopener" target="_blank">vmc.vet.osu.edu</a></li>
+  <li>Association for Pet Obesity Prevention, "Pet Caloric Needs"（おやつ10%、減量ペースの目安） <a href="https://www.petobesityprevention.org/pet-caloric-needs" rel="noopener" target="_blank">petobesityprevention.org</a></li>
+</ul>
+<p class="note">本ツールは一般的な計算式にもとづく目安を示すもので、個々の犬猫の栄養管理や治療を指示するものではありません。</p>
+<section class="faq" id="faq"><h2>よくある質問</h2><details><summary>フードの給与量はどう計算しますか？</summary><p>まず安静時エネルギー要求量 RER＝70×体重(kg)の0.75乗 を求め、ライフステージや避妊去勢の有無に応じた係数をかけて1日の必要カロリー（DER）を出します。これをフードのカロリー密度（kcal/100g）で割って100をかけると1日の給与量（g）になります。例: 体重10kgの避妊去勢済み成犬ならRER約394kcal、DER約630kcal、350kcal/100gのフードなら約180g/日です。</p></details><details><summary>パッケージの給与量表と計算結果が違うのはなぜ？</summary><p>パッケージの表はメーカーが自社フードの栄養設計をもとに作ったもので、計算式の係数や想定する活動量が異なることがあります。どちらも出発点にすぎず、最終的には愛犬・愛猫の体重と体型（ボディコンディションスコア）を見ながら、2〜4週間ごとに量を調整するのが基本です。迷う場合はパッケージ表示と獣医師の指示を優先してください。</p></details><details><summary>おやつはどのくらいまで与えていいですか？</summary><p>おやつは1日の総カロリーの10%以内に収め、その分フードを減らすのが一般的な目安です。例えば1日600kcalが必要なら、おやつは60kcalまでにし、フードを540kcal分にします。おやつが多いと栄養バランスが崩れやすく、肥満の原因になります。</p></details><details><summary>避妊去勢すると必要カロリーは減りますか？</summary><p>はい。避妊去勢後はホルモンの変化で代謝が下がり、必要カロリーが20〜30%ほど減るとされています。そのため係数は未避妊去勢の成犬1.8に対し避妊去勢済みは1.6、猫は1.4に対し1.2と小さくなります。手術後に以前と同じ量を与え続けると太りやすいので、量の見直しが推奨されています。</p></details><details><summary>減量中やシニアの場合はどう考えますか？</summary><p>減量中は係数1.0〜1.2（猫は0.8〜1.0）程度に下げる方法が一般的ですが、急激な減量は危険（特に猫は脂肪肝のリスク）なため、獣医師の指導のもとで行います。シニアは活動量の低下で必要カロリーが減る一方、筋肉量を保つためタンパク質は十分に必要です。体重の推移を見ながら調整してください。</p></details></section>
+</main>
+<div class="ad-slot ad-bottom" data-ad="300x250" data-ad-mobile="300x250"></div>
+<footer class="site-footer"><div class="wrap">
+<p class="disclaimer">本サイトの計算結果はあくまで目安であり、正確性を保証するものではありません。個々の犬・猫の診断・治療・食事管理の判断は、必ずかかりつけの獣医師にご相談ください。本サイトはアフィリエイト広告（楽天アフィリエイト等）を利用しています。</p>
+<p><a href="/pet-calc/about/">このサイトについて</a> · <a href="/pet-calc/privacy/">プライバシーポリシー</a> · 最終更新: 2026-10-11</p>
+<p>© 2026 ペットの計算ノート</p>
+</div></footer>
+<script>window.ADS_ENABLED = false;</script>
+<script src="/pet-calc/assets/ads.js" defer></script>
+<script src="/pet-calc/assets/app.js" defer></script>
+</body>
+</html>

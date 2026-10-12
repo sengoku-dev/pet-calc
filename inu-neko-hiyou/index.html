@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>犬・猫の生涯費用シミュレーター | ペットの計算ノート</title>
+<meta name="description" content="犬・猫を飼うのにかかる年間費用と、これからの生涯費用を簡単シミュレーション。フード代、トイレ用品、ワクチン・健診、治療費、ペット保険、トリミングの内訳をグラフ表示。初期値はアニコム損保「ペットにかける年間支出調査（2025年）」などを参考にしています。">
+<link rel="canonical" href="https://sengoku-dev.github.io/pet-calc/inu-neko-hiyou/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="犬・猫の生涯費用シミュレーター | ペットの計算ノート">
+<meta property="og:description" content="犬・猫を飼うのにかかる年間費用と、これからの生涯費用を簡単シミュレーション。フード代、トイレ用品、ワクチン・健診、治療費、ペット保険、トリミングの内訳をグラフ表示。初期値はアニコム損保「ペットにかける年間支出調査（2025年）」などを参考にしています。">
+<meta property="og:url" content="https://sengoku-dev.github.io/pet-calc/inu-neko-hiyou/">
+<meta property="og:site_name" content="ペットの計算ノート">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#d9772b">
+<link rel="icon" href="/pet-calc/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/pet-calc/assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"犬・猫の生涯費用シミュレーター","url":"https://sengoku-dev.github.io/pet-calc/inu-neko-hiyou/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","description":"犬・猫を飼うのにかかる年間費用と、これからの生涯費用を簡単シミュレーション。フード代、トイレ用品、ワクチン・健診、治療費、ペット保険、トリミングの内訳をグラフ表示。初期値はアニコム損保「ペットにかける年間支出調査（2025年）」などを参考にしています。","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"inLanguage":"ja"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"犬や猫を飼うと年間いくらかかりますか？","acceptedAnswer":{"@type":"Answer","text":"アニコム損害保険の「ペットにかける年間支出調査（2025年）」では、犬は年間413,416円、猫は195,427円でした（同社のペット保険契約者5,494名の回答）。このうちケガや病気の治療費は犬89,120円、猫47,130円です。フード、日用品、トリミング、保険料などを含んだ数字で、飼い方や体格によって大きく変わります。"}},{"@type":"Question","name":"生涯費用はどのくらいになりますか？","acceptedAnswer":{"@type":"Answer","text":"年間費用に残りの年数をかけた概算です。例えば年間40万円の犬を0歳から15歳まで飼うと約600万円、年間20万円の猫を16年飼うと約320万円になります。高齢期は医療費が増える傾向があるため、実際にはそれより多くなることも想定しておくと安心です。"}},{"@type":"Question","name":"ペット保険には入ったほうがいいですか？","acceptedAnswer":{"@type":"Answer","text":"加入は任意で、動物医療は全額自己負担（自由診療）のため、高額な手術や長期の通院に備えたい場合に検討されます。月々の保険料と補償内容（補償割合、年間限度額、対象外の病気、高齢時の保険料上昇）を比較し、貯蓄で備える方法とあわせて考えるのが一般的です。本ツールでは加入の有無と月額を切り替えて比較できます。"}},{"@type":"Question","name":"初期費用はいくら必要ですか？","acceptedAnswer":{"@type":"Answer","text":"本ツールは毎年かかる費用（ランニングコスト）を計算しています。迎えるときには、生体価格や譲渡費用のほか、ケージ・トイレ・食器・キャリーなどの用品、マイクロチップ登録、初回ワクチン、避妊去勢手術などの初期費用が別途かかります。目安として数万〜十数万円を見込む資料が多いですが、地域や動物病院によって異なります。"}},{"@type":"Question","name":"医療費はなぜ年齢で変わるのですか？","acceptedAnswer":{"@type":"Answer","text":"シニア期になると慢性疾患（腎臓病、心臓病、関節疾患、腫瘍など）の治療や、定期的な検査が増えるためです。治療費の初期値は全年齢の平均なので、高齢の犬猫やこれから高齢期を迎える場合は、治療費の欄を多めに設定してシミュレーションしてみてください。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ペットの計算ノート","item":"https://sengoku-dev.github.io/pet-calc/"},{"@type":"ListItem","position":2,"name":"犬・猫の生涯費用シミュレーター","item":"https://sengoku-dev.github.io/pet-calc/inu-neko-hiyou/"}]}</script>
+
+</head>
+<body>
+<header class="site-header"><div class="wrap"><a class="brand" href="/pet-calc/">🐾 ペットの計算ノート</a><nav class="nav"><a href="/pet-calc/inu-nenrei/">犬の年齢換算</a><a href="/pet-calc/neko-nenrei/">猫の年齢換算</a><a href="/pet-calc/inu-neko-hiyou/">生涯費用</a><a href="/pet-calc/food-ryo/">フード量計算</a></nav></div></header>
+<div class="ad-slot ad-top" data-ad="728x90" data-ad-mobile="320x50"></div>
+<main class="wrap">
+<p class="pr-label">当サイトはアフィリエイト広告（楽天アフィリエイト等）を利用しています。</p>
+
+<h1>犬・猫の生涯費用シミュレーター</h1>
+<p class="lead">種類と年齢、毎月・毎年の費用を入れると、年間費用とこれからの生涯費用を計算して内訳をグラフにします。初期値は公的な調査やペット保険会社の調査をもとにした目安なので、ご家庭の実態に合わせて書き換えてください。</p>
+
+<div class="card" data-tool="inu-neko-hiyou">
+  <div class="grid">
+    <div class="field"><label for="c-species">種類</label><select id="c-species"><option value="dog">犬</option><option value="cat">猫</option></select></div>
+    <div class="field" id="c-size-wrap"><label for="c-size">体格</label><select id="c-size"><option value="small">小型犬</option><option value="medium">中型犬</option><option value="large">大型犬</option><option value="giant">超大型犬</option></select><span class="hint">トリミングの初期値に反映</span></div>
+    <div class="field"><label for="c-age">現在の年齢</label><div class="unit"><input type="number" id="c-age" min="0" max="30" step="1" value="0" inputmode="numeric"><span>歳</span></div></div>
+    <div class="field"><label for="c-life">想定寿命</label><div class="unit"><input type="number" id="c-life" min="1" max="30" step="1" value="15" inputmode="numeric"><span>歳</span></div><span class="hint">平均寿命は犬 約14.8歳・猫 約16歳（ペットフード協会調査）</span></div>
+  </div>
+  <h3>毎月の費用</h3>
+  <div class="grid">
+    <div class="field"><label for="c-food">フード・おやつ</label><div class="unit"><input type="number" id="c-food" min="0" step="100" value="6000" inputmode="numeric"><span>円/月</span></div></div>
+    <div class="field"><label for="c-goods">トイレ用品・日用品</label><div class="unit"><input type="number" id="c-goods" min="0" step="100" value="1500" inputmode="numeric"><span>円/月</span></div><span class="hint">ペットシーツ、猫砂、シャンプー、おもちゃなど</span></div>
+  </div>
+  <h3>毎年の費用</h3>
+  <div class="grid">
+    <div class="field"><label for="c-prevent">予防医療（ワクチン・健診・フィラリア等）</label><div class="unit"><input type="number" id="c-prevent" min="0" step="1000" value="30000" inputmode="numeric"><span>円/年</span></div></div>
+    <div class="field"><label for="c-treat">治療費（ケガ・病気の見込み）</label><div class="unit"><input type="number" id="c-treat" min="0" step="1000" value="89000" inputmode="numeric"><span>円/年</span></div><span class="hint">初期値はアニコム2025年調査の平均</span></div>
+    <div class="field"><label for="c-other">その他（ホテル・光熱費・洋服など）</label><div class="unit"><input type="number" id="c-other" min="0" step="1000" value="40000" inputmode="numeric"><span>円/年</span></div></div>
+  </div>
+  <h3>ペット保険・トリミング</h3>
+  <div class="grid">
+    <div class="field"><label><input type="checkbox" id="c-ins"> ペット保険に加入する</label><div class="unit"><input type="number" id="c-ins-m" min="0" step="100" value="3500" inputmode="numeric"><span>円/月</span></div></div>
+    <div class="field"><label for="c-trim-n">トリミング回数</label><div class="unit"><input type="number" id="c-trim-n" min="0" max="52" step="1" value="8" inputmode="numeric"><span>回/年</span></div></div>
+    <div class="field"><label for="c-trim-p">トリミング単価</label><div class="unit"><input type="number" id="c-trim-p" min="0" step="500" value="6000" inputmode="numeric"><span>円/回</span></div></div>
+  </div>
+  <div class="result" id="c-result" aria-live="polite"></div>
+  <h3>年間費用の内訳</h3>
+  <div id="c-chart"></div>
+</div>
+
+<div class="cta">費用の見通しが立ったら、<a href="/pet-calc/food-ryo/">フード量計算</a>で1日の給与量を確認して食費の妥当性を見直したり、<a href="/pet-calc/inu-nenrei/">犬の年齢換算</a>・<a href="/pet-calc/neko-nenrei/">猫の年齢換算</a>でシニア期の時期を把握しておくと、医療費の備えを考えやすくなります。</div>
+
+<h2>初期値の根拠</h2>
+<p>アニコム損害保険が毎年公表している「ペットにかける年間支出調査」の2025年版（2026年3月発表、同社ペット保険契約者5,494名が対象）では、1頭あたりの年間支出は<strong>犬 413,416円、猫 195,427円</strong>でした。内訳のうち「ケガや病気の治療費」は犬 89,120円、猫 47,130円で、猫は前年比145%と大きく増えています。犬猫ともに治療費、ペットホテル・シッター、交通費の伸びが目立ちました。</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>項目（アニコム2025年調査）</th><th class="num">犬</th><th class="num">猫</th></tr></thead>
+  <tbody>
+    <tr><td>年間支出の合計</td><td class="num">413,416円</td><td class="num">195,427円</td></tr>
+    <tr><td>うち ケガや病気の治療費</td><td class="num">89,120円</td><td class="num">47,130円</td></tr>
+    <tr><td>うち 飼育に伴う光熱費（追加分）</td><td class="num">22,273円</td><td class="num">—</td></tr>
+  </tbody>
+</table></div>
+<p>フード代や日用品、予防医療などの初期値は、同調査の過去の公表値（フード・おやつは犬猫とも年5〜6万円台）と一般的な相場をもとにした当サイトの目安です。ペット保険契約者が対象の調査なので、一般の飼い主の平均よりやや高めに出る可能性がある点にも注意してください。</p>
+<p>想定寿命の初期値は、ペットフード協会「全国犬猫飼育実態調査」の平均寿命（犬 14.62歳〔2023年〕・14.90歳〔2024年〕、猫 15.79歳〔2023年〕・15.92歳〔2024年〕）を切り上げて、犬15歳・猫16歳にしています。</p>
+
+<h2>費用を考えるときのポイント</h2>
+<ul>
+  <li><strong>医療費はシニア期に増える。</strong>治療費の欄は全年齢平均なので、7歳以降を含む長期の見積もりでは1.5〜2倍で試算しておくと現実に近づきます。</li>
+  <li><strong>保険か貯蓄か。</strong>ペット保険の保険料は年齢とともに上がる商品が多く、生涯で見ると数十万円規模になります。「保険あり」「保険なし＋同額を積み立て」の両方で計算して比べてみてください。</li>
+  <li><strong>体格でフード代とトリミング代が変わる。</strong>大型犬は食費が小型犬の数倍になり、トリミングも1回あたりの単価が上がります。</li>
+  <li><strong>初期費用は別。</strong>迎え入れ時の用品、初回ワクチン、避妊去勢、マイクロチップ登録などは本ツールの対象外です。</li>
+</ul>
+
+<h2>出典・参考（検証日: 2026-10-11）</h2>
+<ul class="src">
+  <li>アニコム損害保険「ペットにかける年間支出調査（2025年）」ニュースリリース 2026年3月 <a href="https://www.anicom-sompo.co.jp/news-release/2025/20260311/" rel="nofollow noopener" target="_blank">anicom-sompo.co.jp</a>（報道: <a href="https://webtan.impress.co.jp/n/2026/03/18/52335" rel="nofollow noopener" target="_blank">Web担当者Forum</a>）</li>
+  <li>一般社団法人ペットフード協会「全国犬猫飼育実態調査」 <a href="https://petfood.or.jp/data/" rel="noopener" target="_blank">petfood.or.jp/data</a></li>
+</ul>
+<p class="note">本ツールの計算は概算です。実際の費用は地域、動物病院、フードの種類、健康状態によって大きく異なります。</p>
+<section class="faq" id="faq"><h2>よくある質問</h2><details><summary>犬や猫を飼うと年間いくらかかりますか？</summary><p>アニコム損害保険の「ペットにかける年間支出調査（2025年）」では、犬は年間413,416円、猫は195,427円でした（同社のペット保険契約者5,494名の回答）。このうちケガや病気の治療費は犬89,120円、猫47,130円です。フード、日用品、トリミング、保険料などを含んだ数字で、飼い方や体格によって大きく変わります。</p></details><details><summary>生涯費用はどのくらいになりますか？</summary><p>年間費用に残りの年数をかけた概算です。例えば年間40万円の犬を0歳から15歳まで飼うと約600万円、年間20万円の猫を16年飼うと約320万円になります。高齢期は医療費が増える傾向があるため、実際にはそれより多くなることも想定しておくと安心です。</p></details><details><summary>ペット保険には入ったほうがいいですか？</summary><p>加入は任意で、動物医療は全額自己負担（自由診療）のため、高額な手術や長期の通院に備えたい場合に検討されます。月々の保険料と補償内容（補償割合、年間限度額、対象外の病気、高齢時の保険料上昇）を比較し、貯蓄で備える方法とあわせて考えるのが一般的です。本ツールでは加入の有無と月額を切り替えて比較できます。</p></details><details><summary>初期費用はいくら必要ですか？</summary><p>本ツールは毎年かかる費用（ランニングコスト）を計算しています。迎えるときには、生体価格や譲渡費用のほか、ケージ・トイレ・食器・キャリーなどの用品、マイクロチップ登録、初回ワクチン、避妊去勢手術などの初期費用が別途かかります。目安として数万〜十数万円を見込む資料が多いですが、地域や動物病院によって異なります。</p></details><details><summary>医療費はなぜ年齢で変わるのですか？</summary><p>シニア期になると慢性疾患（腎臓病、心臓病、関節疾患、腫瘍など）の治療や、定期的な検査が増えるためです。治療費の初期値は全年齢の平均なので、高齢の犬猫やこれから高齢期を迎える場合は、治療費の欄を多めに設定してシミュレーションしてみてください。</p></details></section>
+</main>
+<div class="ad-slot ad-bottom" data-ad="300x250" data-ad-mobile="300x250"></div>
+<footer class="site-footer"><div class="wrap">
+<p class="disclaimer">本サイトの計算結果はあくまで目安であり、正確性を保証するものではありません。個々の犬・猫の診断・治療・食事管理の判断は、必ずかかりつけの獣医師にご相談ください。本サイトはアフィリエイト広告（楽天アフィリエイト等）を利用しています。</p>
+<p><a href="/pet-calc/about/">このサイトについて</a> · <a href="/pet-calc/privacy/">プライバシーポリシー</a> · 最終更新: 2026-10-11</p>
+<p>© 2026 ペットの計算ノート</p>
+</div></footer>
+<script>window.ADS_ENABLED = false;</script>
+<script src="/pet-calc/assets/ads.js" defer></script>
+<script src="/pet-calc/assets/app.js" defer></script>
+</body>
+</html>
